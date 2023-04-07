@@ -34194,14 +34194,13 @@ var App = /*#__PURE__*/function (_Component) {
     value: function componentDidMount() {
       var options = {
         method: 'GET',
-        url: 'https://us-weather-by-city.p.rapidapi.com/getweather',
+        url: 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather',
         params: {
-          city: 'San Francisco',
-          state: 'CA'
+          city: 'San Francisco'
         },
         headers: {
           'X-RapidAPI-Key': '36b91a9dd0msh567277b041e0cf5p13ff27jsnf75782a4c34b',
-          'X-RapidAPI-Host': 'us-weather-by-city.p.rapidapi.com'
+          'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
         }
       };
       _axios.default.request(options).then(function (res) {
@@ -34255,7 +34254,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52897" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62970" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

@@ -9,11 +9,11 @@ class App extends Component {
     componentDidMount() {
         const options = {
             method: 'GET',
-            url: 'https://us-weather-by-city.p.rapidapi.com/getweather',
-            params: {city: 'San Francisco', state: 'CA'},
+            url: 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather',
+            params: {city: 'San Francisco'},
             headers: {
                 'X-RapidAPI-Key': '36b91a9dd0msh567277b041e0cf5p13ff27jsnf75782a4c34b',
-                'X-RapidAPI-Host': 'us-weather-by-city.p.rapidapi.com'
+                'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
             }
         };
         axios.request(options)
