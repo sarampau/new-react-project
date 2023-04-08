@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+const API_KEY = process.env.REACT_APP_API_KEY;
+
 class App extends Component {
     constructor(props) {
         super(props);
@@ -10,9 +12,9 @@ class App extends Component {
         const options = {
             method: 'GET',
             url: 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather',
-            params: {city: 'San Francisco'},
+            params: {city: 'San Fransisco'},
             headers: {
-                'X-RapidAPI-Key': '36b91a9dd0msh567277b041e0cf5p13ff27jsnf75782a4c34b',
+                'X-RapidAPI-Key': `${API_KEY}`,
                 'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
             }
         };

@@ -34182,6 +34182,7 @@ function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) ===
 function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
 function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+var API_KEY = "36b91a9dd0msh567277b041e0cf5p13ff27jsnf75782a4c34b";
 var App = /*#__PURE__*/function (_Component) {
   _inherits(App, _Component);
   var _super = _createSuper(App);
@@ -34196,10 +34197,10 @@ var App = /*#__PURE__*/function (_Component) {
         method: 'GET',
         url: 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather',
         params: {
-          city: 'San Francisco'
+          city: 'San Fransisco'
         },
         headers: {
-          'X-RapidAPI-Key': '36b91a9dd0msh567277b041e0cf5p13ff27jsnf75782a4c34b',
+          'X-RapidAPI-Key': "".concat(API_KEY),
           'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
         }
       };
@@ -34254,7 +34255,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62970" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55929" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
