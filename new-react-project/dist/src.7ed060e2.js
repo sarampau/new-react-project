@@ -34187,12 +34187,18 @@ var App = /*#__PURE__*/function (_Component) {
   _inherits(App, _Component);
   var _super = _createSuper(App);
   function App(props) {
+    var _this;
     _classCallCheck(this, App);
-    return _super.call(this, props);
+    _this = _super.call(this, props);
+    _this.state = {
+      temp: 0
+    };
+    return _this;
   }
   _createClass(App, [{
     key: "componentDidMount",
     value: function componentDidMount() {
+      var _this2 = this;
       var options = {
         method: 'GET',
         url: 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather',
@@ -34205,7 +34211,11 @@ var App = /*#__PURE__*/function (_Component) {
         }
       };
       _axios.default.request(options).then(function (res) {
-        return console.log(res.data);
+        return res.data.temp;
+      }).then(function (temp) {
+        return _this2.setState({
+          temp: temp
+        });
       }).catch(function (err) {
         return console.log(err);
       });
@@ -34215,7 +34225,7 @@ var App = /*#__PURE__*/function (_Component) {
     value: function render() {
       return _react.default.createElement("div", {
         className: "conatainer"
-      }, _react.default.createElement("h1", null, "Hello there"));
+      }, _react.default.createElement("h1", null, "Hello there, the temperature today is ", this.state.temp));
     }
   }]);
   return App;
@@ -34255,7 +34265,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55929" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59436" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

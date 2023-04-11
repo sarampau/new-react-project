@@ -6,6 +6,9 @@ const API_KEY = process.env.REACT_APP_API_KEY;
 class App extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            temp: 0
+        }
     }
 
     componentDidMount() {
@@ -19,14 +22,15 @@ class App extends Component {
             }
         };
         axios.request(options)
-            .then(res => console.log(res.data))
+            .then(res => res.data.temp)
+            .then(temp => this.setState({ temp }))
             .catch(err => console.log(err))
     }
 
     render() {
         return (
             <div className='conatainer'>
-                <h1>Hello there</h1>
+                <h1>Hello there, the temperature today is {this.state.temp}</h1>
             </div>
         )
     }
