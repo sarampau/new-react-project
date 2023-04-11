@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Temp from './components/temp';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -30,7 +31,9 @@ class App extends Component {
     render() {
         return (
             <div className='conatainer'>
-                <h1>Hello there, the temperature today is {this.state.temp}</h1>
+                <Temp
+                    temp={this.state.temp}
+                />
             </div>
         )
     }
