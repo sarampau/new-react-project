@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Temp from './components/temp';
+import './css/style.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
 
@@ -30,7 +31,7 @@ class App extends Component {
 
     render() {
         return (
-            <div className='conatainer'>
+            <div className='container'>
                 <Temp
                     temp={this.state.temp}
                 />
