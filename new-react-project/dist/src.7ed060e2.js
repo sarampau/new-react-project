@@ -34172,6 +34172,22 @@ var Temp = function Temp(props) {
 };
 var _default = Temp;
 exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../src/components/search.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var Search = function Search(props) {
+  return _react.default.createElement("div", null, _react.default.createElement("input", {
+    placeholder: "Search city here.."
+  }), _react.default.createElement("button", null, "Search"));
+};
+var _default = Search;
+exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
@@ -34237,6 +34253,7 @@ exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _axios = _interopRequireDefault(require("axios"));
 var _temp = _interopRequireDefault(require("./components/temp"));
+var _search = _interopRequireDefault(require("./components/search"));
 require("./css/style.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -34297,7 +34314,7 @@ var App = /*#__PURE__*/function (_Component) {
     value: function render() {
       return _react.default.createElement("div", {
         className: "container"
-      }, _react.default.createElement(_temp.default, {
+      }, _react.default.createElement(_search.default, null), _react.default.createElement(_temp.default, {
         temp: this.state.temp
       }));
     }
@@ -34306,7 +34323,7 @@ var App = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","./components/temp":"../src/components/temp.js","./css/style.css":"../src/css/style.css"}],"../src/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","./components/temp":"../src/components/temp.js","./components/search":"../src/components/search.js","./css/style.css":"../src/css/style.css"}],"../src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34339,7 +34356,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60821" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63946" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
