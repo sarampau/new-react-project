@@ -34286,7 +34286,7 @@ var App = /*#__PURE__*/function (_Component) {
         return res.data.temp;
       }).then(function (temp) {
         return _this2.setState({
-          temp: temp
+          temp: Math.floor(temp * 9 / 5) + 32
         });
       }).catch(function (err) {
         return console.log(err);
@@ -34339,7 +34339,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56269" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60821" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

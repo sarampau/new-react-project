@@ -25,7 +25,7 @@ class App extends Component {
         };
         axios.request(options)
             .then(res => res.data.temp)
-            .then(temp => this.setState({ temp }))
+            .then(temp => this.setState({ temp: Math.floor(temp * 9/5) + 32 }))
             .catch(err => console.log(err))
     }
 
