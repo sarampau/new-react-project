@@ -10,8 +10,10 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            temp: 0
+            temp: 0,
+            input: ''
         }
+        this.handleInput = this.handleInput.bind(this);
     }
 
     componentDidMount() {
@@ -30,10 +32,20 @@ class App extends Component {
             .catch(err => console.log(err))
     }
 
+    handleInput(e) {
+        this.setState({
+            input: e.target.value
+        });
+    }
+
     render() {
+        console.log(this.state.input)
         return (
             <div className='container'>
-                <Search />
+                <Search
+                    input={this.state.input}
+                    handleInput={this.handleInput}
+                />
                 <Temp
                     temp={this.state.temp}
                 />
