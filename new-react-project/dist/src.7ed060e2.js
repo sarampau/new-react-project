@@ -34187,7 +34187,11 @@ var Search = function Search(props) {
       return props.handleInput(e);
     },
     placeholder: "Search city here.."
-  }), _react.default.createElement("button", null, "Search"));
+  }), _react.default.createElement("button", {
+    onClick: function onClick() {
+      return props.handleOnClick();
+    }
+  }, "Search"));
 };
 var _default = Search;
 exports.default = _default;
@@ -34287,17 +34291,18 @@ var App = /*#__PURE__*/function (_Component) {
       input: ''
     };
     _this.handleInput = _this.handleInput.bind(_assertThisInitialized(_this));
+    _this.handleOnClick = _this.handleOnClick.bind(_assertThisInitialized(_this));
     return _this;
   }
   _createClass(App, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
+    key: "handleOnClick",
+    value: function handleOnClick() {
       var _this2 = this;
       var options = {
         method: 'GET',
         url: 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather',
         params: {
-          city: 'San Fransisco'
+          city: "".concat(this.state.input)
         },
         headers: {
           'X-RapidAPI-Key': "".concat(API_KEY),
@@ -34329,7 +34334,8 @@ var App = /*#__PURE__*/function (_Component) {
         className: "container"
       }, _react.default.createElement(_search.default, {
         input: this.state.input,
-        handleInput: this.handleInput
+        handleInput: this.handleInput,
+        handleOnClick: this.handleOnClick
       }), _react.default.createElement(_temp.default, {
         temp: this.state.temp
       }));
@@ -34372,7 +34378,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57843" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61490" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

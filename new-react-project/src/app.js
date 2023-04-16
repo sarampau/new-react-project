@@ -14,13 +14,14 @@ class App extends Component {
             input: ''
         }
         this.handleInput = this.handleInput.bind(this);
+        this.handleOnClick = this.handleOnClick.bind(this);
     }
 
-    componentDidMount() {
+    handleOnClick() {
         const options = {
             method: 'GET',
             url: 'https://weather-by-api-ninjas.p.rapidapi.com/v1/weather',
-            params: {city: 'San Fransisco'},
+            params: {city: `${this.state.input}`},
             headers: {
                 'X-RapidAPI-Key': `${API_KEY}`,
                 'X-RapidAPI-Host': 'weather-by-api-ninjas.p.rapidapi.com'
@@ -45,6 +46,7 @@ class App extends Component {
                 <Search
                     input={this.state.input}
                     handleInput={this.handleInput}
+                    handleOnClick={this.handleOnClick}
                 />
                 <Temp
                     temp={this.state.temp}

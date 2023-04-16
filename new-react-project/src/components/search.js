@@ -7,7 +7,9 @@ const Search = (props) => {
                 onChange={e => props.handleInput(e)}
                 placeholder='Search city here..'
             />
-            <button>Search</button>
+            <button
+                onClick={ () => props.handleOnClick() }
+            >Search</button>
         </div>
     )
 }
