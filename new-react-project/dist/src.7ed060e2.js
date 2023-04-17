@@ -34182,7 +34182,9 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var Search = function Search(props) {
-  return _react.default.createElement("div", null, _react.default.createElement("input", {
+  return _react.default.createElement("div", {
+    className: "search-bar"
+  }, _react.default.createElement("input", {
     onChange: function onChange(e) {
       return props.handleInput(e);
     },
@@ -34378,7 +34380,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61490" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52918" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

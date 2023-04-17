@@ -2,7 +2,7 @@ import React from 'react';
 
 const Search = (props) => {
     return (
-        <div>
+        <div className='search-bar'>
             <input
                 onChange={e => props.handleInput(e)}
                 placeholder='Search city here..'
