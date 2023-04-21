@@ -34167,8 +34167,8 @@ exports.default = void 0;
 var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var Temp = function Temp(props) {
-  var temp = props.temp;
-  return _react.default.createElement("h1", null, "Hello there, the temperature today is ", props.temp);
+  var temp = Math.floor(props.temp * 9 / 5) + 32;
+  return _react.default.createElement("div", null, _react.default.createElement("p", null, "Hello there, the temperature today is ", temp), _react.default.createElement("p", null, "The humidity is ", props.humidity), _react.default.createElement("p", null, "The min temp will be ", props.min), _react.default.createElement("p", null, "The max temp will be ", props.max));
 };
 var _default = Temp;
 exports.default = _default;
@@ -34289,7 +34289,7 @@ var App = /*#__PURE__*/function (_Component) {
     _classCallCheck(this, App);
     _this = _super.call(this, props);
     _this.state = {
-      temp: 0,
+      data: {},
       input: ''
     };
     _this.handleInput = _this.handleInput.bind(_assertThisInitialized(_this));
@@ -34312,10 +34312,10 @@ var App = /*#__PURE__*/function (_Component) {
         }
       };
       _axios.default.request(options).then(function (res) {
-        return res.data.temp;
-      }).then(function (temp) {
+        return res.data;
+      }).then(function (data) {
         return _this2.setState({
-          temp: Math.floor(temp * 9 / 5) + 32
+          data: data
         });
       }).catch(function (err) {
         return console.log(err);
@@ -34331,7 +34331,7 @@ var App = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log(this.state.input);
+      console.log('data', this.state.data);
       return _react.default.createElement("div", {
         className: "container"
       }, _react.default.createElement(_search.default, {
@@ -34339,7 +34339,10 @@ var App = /*#__PURE__*/function (_Component) {
         handleInput: this.handleInput,
         handleOnClick: this.handleOnClick
       }), _react.default.createElement(_temp.default, {
-        temp: this.state.temp
+        temp: this.state.data.temp,
+        humidity: this.state.data.humidity,
+        min: this.state.data.min_temp,
+        max: this.state.data.max_temp
       }));
     }
   }]);
@@ -34380,7 +34383,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52918" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54452" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
