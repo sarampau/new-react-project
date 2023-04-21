@@ -34168,7 +34168,9 @@ var _react = _interopRequireDefault(require("react"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 var Temp = function Temp(props) {
   var temp = Math.floor(props.temp * 9 / 5) + 32;
-  return _react.default.createElement("div", null, _react.default.createElement("p", null, "Hello there, the temperature today is ", temp), _react.default.createElement("p", null, "The humidity is ", props.humidity), _react.default.createElement("p", null, "The min temp will be ", props.min), _react.default.createElement("p", null, "The max temp will be ", props.max));
+  var min = Math.floor(props.min * 9 / 5) + 32;
+  var max = Math.floor(props.max * 9 / 5) + 32;
+  return _react.default.createElement("div", null, _react.default.createElement("p", null, "Hello there, the temperature today is ", temp), _react.default.createElement("p", null, "The humidity is ", props.humidity), _react.default.createElement("p", null, "The min temp will be ", min), _react.default.createElement("p", null, "The max temp will be ", max));
 };
 var _default = Temp;
 exports.default = _default;
@@ -34383,7 +34385,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54452" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56236" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
