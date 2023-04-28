@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Climate from './components/climate';
 import Temp from './components/temp';
 import Search from './components/search';
 import './css/style.css';
@@ -41,7 +42,7 @@ class App extends Component {
         }
         
         render() {
-            // console.log('data', this.state.data);
+            console.log('data', this.state.data);
             console.log('input', this.state.input)
         return (
             <div className='container'>
@@ -50,10 +51,16 @@ class App extends Component {
                     handleInput={this.handleInput}
                     handleOnClick={this.handleOnClick}
                 />
-                <Temp
-                    city={this.state.city}
-                    temp={this.state.data.temp}
-                />
+                <div>
+                    <Temp
+                        city={this.state.city}
+                        temp={this.state.data.temp}
+                    />
+                    <Climate
+                        max={this.state.data.max_temp}
+                        min={this.state.data.min_temp}
+                    />
+                </div>
             </div>
         )
     }

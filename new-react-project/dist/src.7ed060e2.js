@@ -34157,7 +34157,25 @@ exports.isCancel = isCancel;
 exports.CanceledError = CanceledError;
 exports.AxiosError = AxiosError;
 exports.Axios = Axios;
-},{"./lib/axios.js":"../node_modules/axios/lib/axios.js"}],"../src/components/temp.js":[function(require,module,exports) {
+},{"./lib/axios.js":"../node_modules/axios/lib/axios.js"}],"../src/components/climate.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var Climate = function Climate(props) {
+  var max = Math.floor(props.max * 9 / 5) + 32;
+  var min = Math.floor(props.min * 9 / 5) + 32;
+  return _react.default.createElement("div", {
+    className: "climate-container"
+  }, _react.default.createElement("p", null, max), _react.default.createElement("p", null, min));
+};
+var _default = Climate;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../src/components/temp.js":[function(require,module,exports) {
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -34263,6 +34281,7 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = void 0;
 var _react = _interopRequireWildcard(require("react"));
 var _axios = _interopRequireDefault(require("axios"));
+var _climate = _interopRequireDefault(require("./components/climate"));
 var _temp = _interopRequireDefault(require("./components/temp"));
 var _search = _interopRequireDefault(require("./components/search"));
 require("./css/style.css");
@@ -34335,7 +34354,7 @@ var App = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      // console.log('data', this.state.data);
+      console.log('data', this.state.data);
       console.log('input', this.state.input);
       return _react.default.createElement("div", {
         className: "container"
@@ -34343,17 +34362,20 @@ var App = /*#__PURE__*/function (_Component) {
         input: this.state.input,
         handleInput: this.handleInput,
         handleOnClick: this.handleOnClick
-      }), _react.default.createElement(_temp.default, {
+      }), _react.default.createElement("div", null, _react.default.createElement(_temp.default, {
         city: this.state.city,
         temp: this.state.data.temp
-      }));
+      }), _react.default.createElement(_climate.default, {
+        max: this.state.data.max_temp,
+        min: this.state.data.min_temp
+      })));
     }
   }]);
   return App;
 }(_react.Component);
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","./components/temp":"../src/components/temp.js","./components/search":"../src/components/search.js","./css/style.css":"../src/css/style.css"}],"../src/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","./components/climate":"../src/components/climate.js","./components/temp":"../src/components/temp.js","./components/search":"../src/components/search.js","./css/style.css":"../src/css/style.css"}],"../src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34386,7 +34408,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59245" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "62264" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
