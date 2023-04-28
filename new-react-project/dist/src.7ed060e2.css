@@ -10,7 +10,22 @@ p {
     margin-top: 100px;
 }
 
+.outputs {
+    display: flex;
+    justify-content: space-between;
+}
+
 .temp-output {
+    border: 1px solid;
+    border-radius: 10px;
+    width: max-content;
+    padding-right: 3%;
+    padding-left: 3%;
+    margin: auto;
+    margin-top: 30px;
+}
+
+.climate-output {
     border: 1px solid;
     border-radius: 10px;
     width: max-content;

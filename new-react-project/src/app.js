@@ -51,7 +51,7 @@ class App extends Component {
                     handleInput={this.handleInput}
                     handleOnClick={this.handleOnClick}
                 />
-                <div>
+                <div className='outputs'>
                     <Temp
                         city={this.state.city}
                         temp={this.state.data.temp}
