@@ -59,6 +59,10 @@ class App extends Component {
                     <Climate
                         max={this.state.data.max_temp}
                         min={this.state.data.min_temp}
+                        sunrise={this.state.data.sunrise}
+                        sunset={this.state.data.sunset}
+                        clouds={this.state.data.cloud_pct}
+                        humidity={this.state.data.humidity}
                     />
                 </div>
             </div>

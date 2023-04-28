@@ -7,6 +7,10 @@ const Climate = (props) => {
         <div className='climate-output'>
             <p>{max}</p>
             <p>{min}</p>
+            <p>{props.sunrise}</p>
+            <p>{props.sunset}</p>
+            <p>{props.clouds}</p>
+            <p>{props.humidity}</p>
         </div>
     )
 }

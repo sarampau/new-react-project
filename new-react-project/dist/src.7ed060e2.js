@@ -34171,7 +34171,7 @@ var Climate = function Climate(props) {
   var min = Math.floor(props.min * 9 / 5) + 32;
   return _react.default.createElement("div", {
     className: "climate-output"
-  }, _react.default.createElement("p", null, max), _react.default.createElement("p", null, min));
+  }, _react.default.createElement("p", null, max), _react.default.createElement("p", null, min), _react.default.createElement("p", null, props.sunrise), _react.default.createElement("p", null, props.sunset), _react.default.createElement("p", null, props.clouds), _react.default.createElement("p", null, props.humidity));
 };
 var _default = Climate;
 exports.default = _default;
@@ -34369,7 +34369,11 @@ var App = /*#__PURE__*/function (_Component) {
         temp: this.state.data.temp
       }), _react.default.createElement(_climate.default, {
         max: this.state.data.max_temp,
-        min: this.state.data.min_temp
+        min: this.state.data.min_temp,
+        sunrise: this.state.data.sunrise,
+        sunset: this.state.data.sunset,
+        clouds: this.state.data.cloud_pct,
+        humidity: this.state.data.humidity
       })));
     }
   }]);
@@ -34410,7 +34414,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "55863" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57696" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
