@@ -11,7 +11,8 @@ class App extends Component {
         super(props);
         this.state = {
             data: {},
-            input: ''
+            input: '',
+            city: ''
         }
         this.handleInput = this.handleInput.bind(this);
         this.handleOnClick = this.handleOnClick.bind(this);
@@ -29,7 +30,7 @@ class App extends Component {
         };
         axios.request(options)
             .then(res => res.data)
-            .then(data => this.setState({ data }))
+            .then(data => this.setState({ data, city: this.state.input }))
             .catch(err => console.log(err))
         }
         
@@ -40,7 +41,8 @@ class App extends Component {
         }
         
         render() {
-            console.log('data', this.state.data)
+            // console.log('data', this.state.data);
+            console.log('input', this.state.input)
         return (
             <div className='container'>
                 <Search
@@ -49,10 +51,8 @@ class App extends Component {
                     handleOnClick={this.handleOnClick}
                 />
                 <Temp
+                    city={this.state.city}
                     temp={this.state.data.temp}
-                    humidity={this.state.data.humidity}
-                    min={this.state.data.min_temp}
-                    max={this.state.data.max_temp}
                 />
             </div>
         )
