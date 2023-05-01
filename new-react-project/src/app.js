@@ -13,7 +13,8 @@ class App extends Component {
         this.state = {
             data: {},
             input: '',
-            city: ''
+            city: '',
+            searched: false
         }
         this.handleInput = this.handleInput.bind(this);
         this.handleOnClick = this.handleOnClick.bind(this);
@@ -31,7 +32,7 @@ class App extends Component {
         };
         axios.request(options)
             .then(res => res.data)
-            .then(data => this.setState({ data, city: this.state.input }))
+            .then(data => this.setState({ data, city: this.state.input, searched: true }))
             .catch(err => console.log(err))
         }
         
@@ -51,20 +52,25 @@ class App extends Component {
                     handleInput={this.handleInput}
                     handleOnClick={this.handleOnClick}
                 />
-                <div className='outputs'>
-                    <Temp
-                        city={this.state.city}
-                        temp={this.state.data.temp}
-                    />
-                    <Climate
-                        max={this.state.data.max_temp}
-                        min={this.state.data.min_temp}
-                        sunrise={this.state.data.sunrise}
-                        sunset={this.state.data.sunset}
-                        clouds={this.state.data.cloud_pct}
-                        humidity={this.state.data.humidity}
-                    />
-                </div>
+                {
+                    !this.state.searched ?
+                        <div>Welcome. Please search for a city...</div>
+                        :
+                        <div className='outputs'>
+                            <Temp
+                                city={this.state.city}
+                                temp={this.state.data.temp}
+                            />
+                            <Climate
+                                max={this.state.data.max_temp}
+                                min={this.state.data.min_temp}
+                                sunrise={this.state.data.sunrise}
+                                sunset={this.state.data.sunset}
+                                clouds={this.state.data.cloud_pct}
+                                humidity={this.state.data.humidity}
+                            />
+                        </div>
+                }
             </div>
         )
     }
