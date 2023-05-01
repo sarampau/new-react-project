@@ -54,7 +54,7 @@ class App extends Component {
                 />
                 {
                     !this.state.searched ?
-                        <div>Welcome. Please search for a city...</div>
+                        <div className='welcome'>Welcome. Please search for a city...</div>
                         :
                         <div className='outputs'>
                             <Temp
