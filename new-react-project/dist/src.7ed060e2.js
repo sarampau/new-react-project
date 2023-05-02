@@ -34169,9 +34169,11 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Climate = function Climate(props) {
   var max = Math.floor(props.max * 9 / 5) + 32;
   var min = Math.floor(props.min * 9 / 5) + 32;
+  var sunrise = new Date(props.sunrise).toLocaleTimeString();
+  var sunset = new Date(props.sunset).toLocaleTimeString();
   return _react.default.createElement("div", {
     className: "climate-output"
-  }, _react.default.createElement("p", null, max), _react.default.createElement("p", null, min), _react.default.createElement("p", null, props.sunrise), _react.default.createElement("p", null, props.sunset), _react.default.createElement("p", null, props.clouds), _react.default.createElement("p", null, props.humidity));
+  }, _react.default.createElement("p", null, max), _react.default.createElement("p", null, min), _react.default.createElement("p", null, sunrise), _react.default.createElement("p", null, sunset), _react.default.createElement("p", null, props.clouds), _react.default.createElement("p", null, props.humidity, "%"));
 };
 var _default = Climate;
 exports.default = _default;
@@ -34418,7 +34420,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63194" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54448" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
