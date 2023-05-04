@@ -14,7 +14,8 @@ class App extends Component {
             data: {},
             input: '',
             city: '',
-            searched: false
+            searched: false,
+            error: false
         }
         this.handleInput = this.handleInput.bind(this);
         this.handleOnClick = this.handleOnClick.bind(this);
@@ -32,19 +33,25 @@ class App extends Component {
         };
         axios.request(options)
             .then(res => res.data)
-            .then(data => this.setState({ data, city: this.state.input, searched: true }))
-            .catch(err => console.log(err))
+            .then(data => this.setState({ 
+                data,
+                city: this.state.input,
+                searched: true,
+                error: false
+            }))
+            .catch(err => console.log('Error:', err));
+            this.setState({error: true});
         }
         
-        handleInput(e) {
-            this.setState({
-                input: e.target.value
-            });
-        }
+    handleInput(e) {
+        this.setState({
+            input: e.target.value
+        });
+    }
         
-        render() {
-            console.log('data', this.state.data);
-            console.log('input', this.state.input)
+    render() {
+            console.log('error', this.state.error);
+            // console.log('input', this.state.input)
         return (
             <div className='container'>
                 <Search

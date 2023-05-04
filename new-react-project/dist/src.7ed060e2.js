@@ -34315,7 +34315,8 @@ var App = /*#__PURE__*/function (_Component) {
       data: {},
       input: '',
       city: '',
-      searched: false
+      searched: false,
+      error: false
     };
     _this.handleInput = _this.handleInput.bind(_assertThisInitialized(_this));
     _this.handleOnClick = _this.handleOnClick.bind(_assertThisInitialized(_this));
@@ -34342,10 +34343,14 @@ var App = /*#__PURE__*/function (_Component) {
         return _this2.setState({
           data: data,
           city: _this2.state.input,
-          searched: true
+          searched: true,
+          error: false
         });
       }).catch(function (err) {
-        return console.log(err);
+        return console.log('Error:', err);
+      });
+      this.setState({
+        error: true
       });
     }
   }, {
@@ -34358,8 +34363,8 @@ var App = /*#__PURE__*/function (_Component) {
   }, {
     key: "render",
     value: function render() {
-      console.log('data', this.state.data);
-      console.log('input', this.state.input);
+      console.log('error', this.state.error);
+      // console.log('input', this.state.input)
       return _react.default.createElement("div", {
         className: "container"
       }, _react.default.createElement(_search.default, {
@@ -34420,7 +34425,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54448" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "54615" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];
