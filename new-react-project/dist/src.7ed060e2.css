@@ -21,6 +21,17 @@ p {
     height: 200px;
 }
 
+.error {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+    margin-left: 25%;
+    margin-right: 25%;
+    border: 1px solid;
+    border-radius: 10px;
+    height: 200px;
+}
+
 .outputs {
     display: flex;
     justify-content: space-between;

@@ -60,23 +60,26 @@ class App extends Component {
                     handleOnClick={this.handleOnClick}
                 />
                 {
-                    !this.state.searched ?
-                        <div className='welcome'>Welcome. Please search for a city...</div>
+                    this.state.error === true ?
+                        <div className='error'>Invalid input. Please try again.</div>
                         :
-                        <div className='outputs'>
-                            <Temp
-                                city={this.state.city}
-                                temp={this.state.data.temp}
-                            />
-                            <Climate
-                                max={this.state.data.max_temp}
-                                min={this.state.data.min_temp}
-                                sunrise={this.state.data.sunrise}
-                                sunset={this.state.data.sunset}
-                                clouds={this.state.data.cloud_pct}
-                                humidity={this.state.data.humidity}
-                            />
-                        </div>
+                        !this.state.searched ?
+                            <div className='welcome'>Welcome. Please search for a city...</div>
+                            :
+                            <div className='outputs'>
+                                <Temp
+                                    city={this.state.city}
+                                    temp={this.state.data.temp}
+                                />
+                                <Climate
+                                    max={this.state.data.max_temp}
+                                    min={this.state.data.min_temp}
+                                    sunrise={this.state.data.sunrise}
+                                    sunset={this.state.data.sunset}
+                                    clouds={this.state.data.cloud_pct}
+                                    humidity={this.state.data.humidity}
+                                />
+                            </div>
                 }
             </div>
         )
