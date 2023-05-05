@@ -34219,6 +34219,38 @@ var Search = function Search(props) {
 };
 var _default = Search;
 exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../src/components/error-message.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var ErrorMessage = function ErrorMessage(props) {
+  return _react.default.createElement("div", {
+    className: "welcome"
+  }, _react.default.createElement("p", null, "Invalid input. Please try again..."));
+};
+var _default = ErrorMessage;
+exports.default = _default;
+},{"react":"../node_modules/react/index.js"}],"../src/components/welcome.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _react = _interopRequireDefault(require("react"));
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+var Welcome = function Welcome(props) {
+  return _react.default.createElement("div", {
+    className: "welcome"
+  }, _react.default.createElement("p", null, "Welcome. Please search for a city..."));
+};
+var _default = Welcome;
+exports.default = _default;
 },{"react":"../node_modules/react/index.js"}],"../node_modules/parcel-bundler/src/builtins/bundle-url.js":[function(require,module,exports) {
 var bundleURL = null;
 function getBundleURLCached() {
@@ -34286,6 +34318,8 @@ var _axios = _interopRequireDefault(require("axios"));
 var _climate = _interopRequireDefault(require("./components/climate"));
 var _temp = _interopRequireDefault(require("./components/temp"));
 var _search = _interopRequireDefault(require("./components/search"));
+var _errorMessage = _interopRequireDefault(require("./components/error-message"));
+var _welcome = _interopRequireDefault(require("./components/welcome"));
 require("./css/style.css");
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function (nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
@@ -34371,11 +34405,7 @@ var App = /*#__PURE__*/function (_Component) {
         input: this.state.input,
         handleInput: this.handleInput,
         handleOnClick: this.handleOnClick
-      }), this.state.error === true ? _react.default.createElement("div", {
-        className: "error"
-      }, "Invalid input. Please try again.") : !this.state.searched ? _react.default.createElement("div", {
-        className: "welcome"
-      }, "Welcome. Please search for a city...") : _react.default.createElement("div", {
+      }), this.state.error === true ? _react.default.createElement(_errorMessage.default, null) : !this.state.searched ? _react.default.createElement(_welcome.default, null) : _react.default.createElement("div", {
         className: "outputs"
       }, _react.default.createElement(_temp.default, {
         city: this.state.city,
@@ -34394,7 +34424,7 @@ var App = /*#__PURE__*/function (_Component) {
 }(_react.Component);
 var _default = App;
 exports.default = _default;
-},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","./components/climate":"../src/components/climate.js","./components/temp":"../src/components/temp.js","./components/search":"../src/components/search.js","./css/style.css":"../src/css/style.css"}],"../src/index.js":[function(require,module,exports) {
+},{"react":"../node_modules/react/index.js","axios":"../node_modules/axios/index.js","./components/climate":"../src/components/climate.js","./components/temp":"../src/components/temp.js","./components/search":"../src/components/search.js","./components/error-message":"../src/components/error-message.js","./components/welcome":"../src/components/welcome.js","./css/style.css":"../src/css/style.css"}],"../src/index.js":[function(require,module,exports) {
 "use strict";
 
 var _react = _interopRequireDefault(require("react"));
@@ -34427,7 +34457,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61210" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64525" + '/');
   ws.onmessage = function (event) {
     checkedAssets = {};
     assetsToAccept = [];

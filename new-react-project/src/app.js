@@ -3,6 +3,8 @@ import axios from 'axios';
 import Climate from './components/climate';
 import Temp from './components/temp';
 import Search from './components/search';
+import ErrorMessage from './components/error-message';
+import Welcome from './components/welcome';
 import './css/style.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY;
@@ -61,10 +63,10 @@ class App extends Component {
                 />
                 {
                     this.state.error === true ?
-                        <div className='error'>Invalid input. Please try again.</div>
+                        <ErrorMessage />
                         :
                         !this.state.searched ?
-                            <div className='welcome'>Welcome. Please search for a city...</div>
+                            <Welcome />
                             :
                             <div className='outputs'>
                                 <Temp
